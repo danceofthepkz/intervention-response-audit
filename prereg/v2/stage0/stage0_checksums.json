@@ -1,0 +1,11 @@
+{
+  "frozen_config.json": "92aae0985e2d35bb0218edb2a0ef6b3e84d2b51b9df105d290598ea2ecd850af",
+  "prompt_corpus.jsonl": "9ca195334b32ac414ee02fcf12679bc70c29d979a0c8653416d3d69666a387a5",
+  "reserve_render_checks.jsonl": "72fe5d96951088ca527c7c4c8e93540a3db43a7eeebc0ad1b5dc6ee7a702643c",
+  "selector_audit.json": "f4d4290cf90e15238ad764c911993832b4540ed3e23da24954f95a1d5c7fffe7",
+  "stage0_acceptance.json": "87f5d962625b69bfade53d1b700eecdaa9e7593ed248075f80e1ef27c65aafd4",
+  "state_allocation.csv": "c2c2521cba6f1e11c0cd3a66abd44beb9204ae412bc9b88bfcd35c95afb11c4e",
+  "state_allocation.jsonl": "311b42790107606287c753defd0490f502d2aa4528fe73f67c1a57cfbba4554a",
+  "state_allocation.parquet": "544b50f0c273ab6611ec456783842112103a16b3b765a4d68c171f0cbac2fd3e",
+  "template_validation.csv": "9f3346ea680699e9d4a8e6345ef427bf66cfdd3130210fdb87b8089f2cc18be3"
+}

@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "check_id": "E1_STATE_ROLE_COUNTS",
+      "evidence": "{\"confirmatory\":60,\"pilot\":10,\"reserve\":10}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_SCENARIO_UNIQUENESS",
+      "evidence": "states=80, unique_scenarios=80",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_STATE_HASH_INTEGRITY",
+      "evidence": "recomputed_records=80",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_TOPIC_MARGINS",
+      "evidence": "{\"club_event\":12,\"course_material\":12,\"gossip\":12,\"internship\":12,\"policy_change\":12}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_CREDIBILITY_MARGINS",
+      "evidence": "{\"high\":21,\"low\":23,\"mid\":16}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_EXPOSURE_MARGINS",
+      "evidence": "{\"1\":32,\"2\":20,\"3+\":8}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_STEP_MARGINS",
+      "evidence": "{\"1\":15,\"2\":16,\"3+\":29}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_TEMPLATE_CELL_COVERAGE",
+      "evidence": "{\"club_event|high\":4,\"club_event|low\":5,\"club_event|mid\":3,\"course_material|high\":3,\"course_material|low\":6,\"course_material|mid\":3,\"gossip|high\":5,\"gossip|low\":3,\"gossip|mid\":4,\"internship|high\":5,\"internship|low\":3,\"internship|mid\":4,\"policy_change|high\":4,\"policy_change|low\":6,\"policy_change|mid\":2}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_PILOT_TOPIC_BALANCE",
+      "evidence": "{\"club_event\":2,\"course_material\":2,\"gossip\":2,\"internship\":2,\"policy_change\":2}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_RESERVE_TOPIC_BALANCE",
+      "evidence": "{\"club_event\":2,\"course_material\":2,\"gossip\":2,\"internship\":2,\"policy_change\":2}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_OUTPUT_BLIND_SELECTOR",
+      "evidence": "forbidden_loaded=[]; loaded=['agent_id', 'controversy', 'credibility', 'max_tie_strength', 'mechanism', 'n_doubt', 'n_endorse', 'n_exposures', 'n_neutral', 'query_index', 'same_club_exposers', 'same_major_exposers', 'scaffold_id', 'scenario_id', 'socialness', 'source_diversity', 'step', 'sum_tie_strength', 'topic', 'topic_interest', 'trust', 'urgency', 'year']",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_REPRODUCIBLE_MANIFEST",
+      "evidence": "reproducible_manifest=True",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_PROMPT_COUNT",
+      "evidence": "prompt_records=140",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_PROMPT_PAIR_INTEGRITY",
+      "evidence": "pairs=70, cross_state_duplicate_hashes={}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_PROMPT_HASH_INTEGRITY",
+      "evidence": "recomputed_prompts=140",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_RESERVE_RENDERABILITY",
+      "evidence": "reserve_checks=10, all_renderable=True",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_TEMPLATE_CHECKLIST_INTEGRITY",
+      "evidence": "expected_cells=15, observed_cells=15",
+      "status": "PASS"
+    },
+    {
+      "check_id": "E1_BLIND_TEMPLATE_REVIEW",
+      "evidence": "reviewed_pairs=15/15; failed_cells=[]",
+      "status": "PASS"
+    }
+  ],
+  "config_sha256": "a1b0b78003e6bd7cd59e5a19c0188bd74bd1c143bf2a2a46092585fedf984456",
+  "prompt_corpus_sha256": "14cd0d62c480b01f894eee979f53a24d4896f5e9842f67ac461c533fe1610f82",
+  "stage": "E1_STAGE0",
+  "state_manifest_sha256": "617e48b4948bba918392820edf8b4bcc51ec19ea753718991d98abe93a7ae292",
+  "status": "PASS"
+}

@@ -1,0 +1,164 @@
+{
+  "belief": {
+    "estimate": 0.09716666666666667,
+    "fixed_template_ci": [
+      0.06099861111111112,
+      0.13055555555555556
+    ],
+    "template_cluster_ci": [
+      0.04990370370370371,
+      0.14411851851851853
+    ]
+  },
+  "heterogeneity": {
+    "credibility_tier": {
+      "high": {
+        "mean_signed_contrast": 0.14968253968253967,
+        "n": 21
+      },
+      "low": {
+        "mean_signed_contrast": 0.031739130434782624,
+        "n": 23
+      },
+      "mid": {
+        "mean_signed_contrast": 0.08270833333333336,
+        "n": 16
+      }
+    },
+    "exposure_bin": {
+      "1": {
+        "mean_signed_contrast": 0.06937499999999999,
+        "n": 32
+      },
+      "2": {
+        "mean_signed_contrast": 0.08449999999999999,
+        "n": 20
+      },
+      "3+": {
+        "mean_signed_contrast": 0.16083333333333333,
+        "n": 8
+      }
+    },
+    "step_bin": {
+      "1": {
+        "mean_signed_contrast": 0.046444444444444434,
+        "n": 15
+      },
+      "2": {
+        "mean_signed_contrast": 0.03500000000000001,
+        "n": 16
+      },
+      "3+": {
+        "mean_signed_contrast": 0.1358620689655172,
+        "n": 29
+      }
+    },
+    "template_cell": {
+      "club_event|high": {
+        "mean_signed_contrast": 0.17499999999999996,
+        "n": 4
+      },
+      "club_event|low": {
+        "mean_signed_contrast": 0.05333333333333332,
+        "n": 5
+      },
+      "club_event|mid": {
+        "mean_signed_contrast": 0.13555555555555557,
+        "n": 3
+      },
+      "course_material|high": {
+        "mean_signed_contrast": 0.15333333333333332,
+        "n": 3
+      },
+      "course_material|low": {
+        "mean_signed_contrast": 0.03222222222222223,
+        "n": 6
+      },
+      "course_material|mid": {
+        "mean_signed_contrast": 0.09999999999999998,
+        "n": 3
+      },
+      "gossip|high": {
+        "mean_signed_contrast": 0.08599999999999998,
+        "n": 5
+      },
+      "gossip|low": {
+        "mean_signed_contrast": 0.00555555555555554,
+        "n": 3
+      },
+      "gossip|mid": {
+        "mean_signed_contrast": 0.05,
+        "n": 4
+      },
+      "internship|high": {
+        "mean_signed_contrast": 0.24733333333333332,
+        "n": 5
+      },
+      "internship|low": {
+        "mean_signed_contrast": 0.035555555555555556,
+        "n": 3
+      },
+      "internship|mid": {
+        "mean_signed_contrast": 0.09583333333333335,
+        "n": 4
+      },
+      "policy_change|high": {
+        "mean_signed_contrast": 0.07916666666666666,
+        "n": 4
+      },
+      "policy_change|low": {
+        "mean_signed_contrast": 0.02444444444444448,
+        "n": 6
+      },
+      "policy_change|mid": {
+        "mean_signed_contrast": 0.01666666666666669,
+        "n": 2
+      }
+    },
+    "topic": {
+      "club_event": {
+        "mean_signed_contrast": 0.11444444444444446,
+        "n": 12
+      },
+      "course_material": {
+        "mean_signed_contrast": 0.07944444444444444,
+        "n": 12
+      },
+      "gossip": {
+        "mean_signed_contrast": 0.05388888888888888,
+        "n": 12
+      },
+      "internship": {
+        "mean_signed_contrast": 0.14388888888888887,
+        "n": 12
+      },
+      "policy_change": {
+        "mean_signed_contrast": 0.04138888888888891,
+        "n": 12
+      }
+    }
+  },
+  "provenance_note": "Pre-specified Stage-0 formulas; execution code implemented after primary collection and cannot alter the primary verdict.",
+  "reshare": {
+    "permutation_resamples": 100000,
+    "r_text_adjusted": 0.008715964522750178,
+    "r_text_permutation_null": 0.002495177712976299,
+    "r_text_raw": 0.011211142235726477,
+    "raw_absolute_contrast": 0.09716666666666665
+  },
+  "structured": {
+    "decomposition_error": 2.0816681711721685e-17,
+    "feature_count": 27,
+    "r_global_full": 0.03682525796576277,
+    "r_struct_cf_anchor": 0.02685248546001513,
+    "r_text_raw": 0.011211142235726477,
+    "r_total_cf_anchor": 0.03806362769574163,
+    "selected_c_by_outer_fold": {
+      "0": 0.3,
+      "1": 0.3,
+      "2": 0.3,
+      "3": 0.3,
+      "4": 0.3
+    }
+  }
+}

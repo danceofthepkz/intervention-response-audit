@@ -1,0 +1,26 @@
+{
+  "stage": "E3_MOCK_ANALYSIS",
+  "status": "PASS",
+  "verified_at_utc": "2026-07-17T03:02:49Z",
+  "checks": {
+    "confirmatory_deterministic_branch": true,
+    "confirmatory_stochastic_permutation_branch": true,
+    "direction_positive_branch": true,
+    "direction_reversal_branch": true,
+    "direction_unresolved_branch": true,
+    "k_1_branch": true,
+    "k_3_branch": true,
+    "k_5_branch": true,
+    "k_10_branch": true,
+    "k_halt_branch": true,
+    "practical_equivalence_branch": true,
+    "practical_meaningful_branch": true,
+    "report_language_all_label_combinations": true,
+    "scenario_level_structured_crossfit": true,
+    "soft_label_weighted_fit_without_pseudo_sampling": true,
+    "template_cluster_sensitivity_branch": true
+  },
+  "test_command": ".venv/bin/python -m pytest -q",
+  "test_result": "102 passed",
+  "test_runtime_seconds": 15.15
+}

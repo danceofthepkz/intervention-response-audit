@@ -1,0 +1,57 @@
+{
+  "confirmatory_schedule_seed": 20260717,
+  "confirmatory_states": 60,
+  "credibility_targets": {
+    "high": 21,
+    "low": 23,
+    "mid": 16
+  },
+  "crossfit_seed": 20260720,
+  "exposure_targets": {
+    "1": 32,
+    "2": 20,
+    "3+": 8
+  },
+  "k_candidates": [
+    3,
+    5,
+    10
+  ],
+  "max_live_usd": 5.0,
+  "max_output_tokens": 300,
+  "max_retry_attempts": 14,
+  "max_scientific_calls": 1400,
+  "max_smoke_attempts": 20,
+  "min_states_per_template_cell": 2,
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "permutation_seed": 20260719,
+  "pilot_replicates_per_side": 10,
+  "pilot_schedule_seed": 20260722,
+  "pilot_states": 10,
+  "practical_delta": 0.03,
+  "primary_bootstrap_seed": 20260718,
+  "primary_output": "reshare",
+  "protocol_version": "2026-07-16",
+  "reasoning_effort": "none",
+  "reserve_states": 10,
+  "response_format": "json_object",
+  "scaffold_id": 0,
+  "secondary_output": "believe",
+  "selector_seed": 20260716,
+  "step_targets": {
+    "1": 15,
+    "2": 16,
+    "3+": 29
+  },
+  "study_id": "sociopt_v2_authority_hedge",
+  "temperature": 0.0,
+  "template_bootstrap_seed": 20260721,
+  "template_revision": "v2_low_tier_revision1_20260717",
+  "topic_targets": {
+    "club_event": 12,
+    "course_material": 12,
+    "gossip": 12,
+    "internship": 12,
+    "policy_change": 12
+  }
+}

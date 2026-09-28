@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "both_conditions_twice": true,
+    "exact_snapshot": true,
+    "exactly_four_valid_calls": true,
+    "positive_latency_logged": true,
+    "unique_response_ids": true,
+    "unique_usage_events": true,
+    "within_live_budget": true
+  },
+  "response_ids": [
+    "chatcmpl-E2TKgQlVlfnEjW1EFfgj7yUUf9J8X",
+    "chatcmpl-E2TKhx5nISdN3fyfhyvrWpLDOdjcf",
+    "chatcmpl-E2TKkH0o2rPuron0eEScSxg7fGcai",
+    "chatcmpl-E2TKmAWBZYP8amuwOc7DF5tah1bOP"
+  ],
+  "stage": "E4_LIVE_SMOKE",
+  "status": "PASS",
+  "summary": {
+    "accepted_slots": 4,
+    "attempts": 4,
+    "cumulative_cost_usd": 0.0013080000000000001,
+    "resumed_slots": 0,
+    "retry_attempts": 0,
+    "scheduled_slots": 4
+  }
+}

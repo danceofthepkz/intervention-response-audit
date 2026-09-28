@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "balanced_sides": true,
+    "confirmatory_states_60": true,
+    "contiguous_schedule": true,
+    "k_matches_mechanical_decision": true,
+    "pilot_pass": true,
+    "seed_frozen": true,
+    "slot_count": true,
+    "slots_per_state": true,
+    "unique_slots": true
+  },
+  "pilot_decision_sha256": "1280ffd2446c62843ba77b32278c7aa89099100e071fe0992bf26594ee2b3c6e",
+  "prelive_commit": "b6391c3",
+  "projected_valid_calls": 360,
+  "protocol_deviation": "Confirmatory scheduler code was added after pilot collection but before confirmatory collection; K, states, prompts, seed, and ordering rule were already frozen in Stage-0.",
+  "schedule_content_sha256": "1fa7739fac1b42fbe8d9c19f912bf41aadca21789949f804ddbb0c60eff5e3e2",
+  "schedule_file_sha256": "cfade22d603b2badf7264aa7a6cde57ad8ff9cdf7bfb69b5b62137cf2e84b33f",
+  "selected_k": 3,
+  "stage": "E6_CONFIRMATORY_FREEZE",
+  "status": "PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "contiguous_schedule": true,
+    "pilot_states_10": true,
+    "seed_frozen": true,
+    "side_counts_a100_h100": true,
+    "slot_count_200": true,
+    "stage0_pass": true,
+    "twenty_slots_per_state": true,
+    "unique_slots_200": true
+  },
+  "config_sha256": "a1b0b78003e6bd7cd59e5a19c0188bd74bd1c143bf2a2a46092585fedf984456",
+  "schedule_content_sha256": "4e5f976410fc38352853ae372ad22331b78f52cdb304f447b212f6c89a6460a1",
+  "schedule_file_sha256": "4b8f55cc299653f00c430fb86963dd5a39a804319dc0be2c6e406f63f6616063",
+  "schedule_seed": 20260722,
+  "stage": "E2_PILOT_SCHEDULE",
+  "stage0_commit": "93e1219a27386ed1db581f7409e24ff32d5ae5a1",
+  "stage0_prompt_corpus_sha256": "14cd0d62c480b01f894eee979f53a24d4896f5e9842f67ac461c533fe1610f82",
+  "stage0_state_manifest_sha256": "617e48b4948bba918392820edf8b4bcc51ec19ea753718991d98abe93a7ae292",
+  "status": "PASS"
+}

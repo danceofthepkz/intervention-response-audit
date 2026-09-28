@@ -1,0 +1,42 @@
+{
+  "stage": "E9_FINAL_INTEGRITY",
+  "status": "PASS",
+  "checks": {
+    "all_564_attempts_accepted_and_valid": true,
+    "all_config_hashes_exact": true,
+    "all_model_snapshots_exact": true,
+    "confirmatory_manifest_hash_matches_freeze": true,
+    "no_retries": true,
+    "response_ids_unique_564": true,
+    "secondary_decomposition_identity": true,
+    "test_suite_106_passed": true,
+    "usage_events_unique_564": true,
+    "within_five_usd_hard_cap": true
+  },
+  "calls": {
+    "smoke": 4,
+    "pilot": 200,
+    "confirmatory": 360,
+    "total": 564
+  },
+  "cost_usd": {
+    "smoke": 0.001308,
+    "pilot": 0.069009,
+    "confirmatory": 0.126171,
+    "total": 0.196488,
+    "hard_cap": 5.0
+  },
+  "model_snapshot": "gpt-5.4-mini-2026-03-17",
+  "config_sha256": "a1b0b78003e6bd7cd59e5a19c0188bd74bd1c143bf2a2a46092585fedf984456",
+  "artifact_sha256": {
+    "prereg/v2/confirmatory/confirmatory_schedule.jsonl": "cfade22d603b2badf7264aa7a6cde57ad8ff9cdf7bfb69b5b62137cf2e84b33f",
+    "results/v2/confirmatory/attempts.jsonl": "2e71008ef3f51b0c8d5935a5e0daec0351ed9b907bcb4fb35c106473d14048e1",
+    "results/v2/confirmatory/primary_result.json": "279851daba34ebc8792d95e92981a9880c080e167bf62a56459507616e3a9297",
+    "results/v2/secondary/secondary_result.json": "2777fae449069df2a11f4f2269ca5805505f5857e72e1d8e265ea357a4d4bec5",
+    "results/v2/secondary/structured_oof_predictions.parquet": "1a288bacf48cb06e146ac185d71f7d1c647745d94028d6bc3a9ae8caa0afe5d5"
+  },
+  "protocol_deviations": [
+    "Confirmatory scheduler code was added after pilot collection but before confirmatory collection; K, states, prompts, seed, and ordering rule were already frozen in Stage-0.",
+    "Secondary-analysis execution code was implemented after primary collection; every reported secondary estimand, formula, seed, and interpretation status was already specified in Stage-0, and none alters the primary verdict."
+  ]
+}

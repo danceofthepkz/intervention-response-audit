@@ -1,0 +1,45 @@
+{
+  "stage": "E3_PRELIVE_FREEZE",
+  "status": "PASS",
+  "verified_at_utc": "2026-07-17T03:02:49Z",
+  "stage0_code_commit": "54b625ce3fafdede474effcae9f42b4239892674",
+  "checks": {
+    "api_credential_configured_without_reading_value": true,
+    "chat_completions_endpoint_listed": true,
+    "exact_snapshot_listed": true,
+    "frozen_reasoning_effort_none_listed": true,
+    "frozen_sdk_accepts_max_completion_tokens": true,
+    "frozen_sdk_accepts_reasoning_effort": true,
+    "frozen_sdk_accepts_temperature": true,
+    "full_test_suite_102_passed": true,
+    "hard_live_cap_usd_5": true,
+    "json_object_mode_supported": true,
+    "no_parameter_fallback": true,
+    "smoke_call_cap_4_within_registered_cap_20": true,
+    "worst_case_token_projection_below_cap": true
+  },
+  "code_sha256": {
+    "sociopt/v2/analysis.py": "8dc67dbd3728b2e024b1059ffcc2e389b257efd73e902a556960f547267d2322",
+    "sociopt/v2/live.py": "4b6fafbce575a98269ec081ce66e3f1235d05f2de7779cb84f60d3b34bf79c3e",
+    "sociopt/v2/openai_provider.py": "aea016d1d57a3044e83ece093d235b5ba8441cedcf668b166d0cbb52188d6a76",
+    "sociopt/v2/report.py": "a313a6df239ec2c2d27eef530afea2e9c5da85ad2af6811e7d4e64af64c5208c",
+    "sociopt/v2/structured.py": "5dadadbb02c47c5164a0e8562ca2980ba1f5335421d4bd48cf7230359a5ade63"
+  },
+  "model": {
+    "snapshot": "gpt-5.4-mini-2026-03-17",
+    "reasoning_effort": "none",
+    "temperature": 0.0,
+    "max_completion_tokens": 300,
+    "response_format": "json_object"
+  },
+  "budget_projection": {
+    "prompt_chars_min": 706,
+    "prompt_chars_mean": 845.4,
+    "prompt_chars_max": 1638,
+    "projection_method": "1434 calls, maximum prompt length divided by 4 chars/token, full 300-token output, no caching",
+    "projected_usd": 2.3763,
+    "hard_cap_usd": 5.0
+  },
+  "official_source": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+  "smoke_schedule_sha256": "f8195d2e00d8dc32b373c3ac1d89547081bf88027021c3f0b83c72a37e448bd1"
+}

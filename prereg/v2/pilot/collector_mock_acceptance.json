@@ -1,0 +1,38 @@
+{
+  "stage": "E2_COLLECTOR_SAFETY_SHELL",
+  "status": "PASS",
+  "stage0_commit": "93e1219a27386ed1db581f7409e24ff32d5ae5a1",
+  "live_adapter_present": false,
+  "live_api_calls": 0,
+  "targeted_collector_tests": 15,
+  "full_test_suite": "76 passed",
+  "checks": {
+    "strict_four_key_output_schema": true,
+    "byte_identical_retry": true,
+    "maximum_two_attempts_per_slot": true,
+    "append_only_fsync_log": true,
+    "resume_skips_accepted_slots": true,
+    "resume_continues_only_canonical_retry": true,
+    "tampered_attempt_identity_halts": true,
+    "duplicate_response_id_halts": true,
+    "missing_usage_event_halts": true,
+    "provider_config_drift_halts": true,
+    "prompt_hash_drift_halts_before_call": true,
+    "second_invalid_attempt_halts": true,
+    "retry_count_and_rate_guards_halt": true,
+    "call_cap_halts_before_next_request": true,
+    "preflight_and_actual_budget_guards_halt": true,
+    "unexpected_provider_exception_is_logged_and_halts": true
+  },
+  "pilot_schedule": {
+    "status": "PASS",
+    "slots": 200,
+    "states": 10,
+    "authority_slots": 100,
+    "hedge_slots": 100,
+    "seed": 20260722,
+    "schedule_content_sha256": "4e5f976410fc38352853ae372ad22331b78f52cdb304f447b212f6c89a6460a1",
+    "schedule_file_sha256": "4b8f55cc299653f00c430fb86963dd5a39a804319dc0be2c6e406f63f6616063"
+  },
+  "next_gate": "Implement and mock-test the provider adapter plus live-smoke-only command. Do not run smoke without a separate explicit authorization and current model/pricing verification."
+}

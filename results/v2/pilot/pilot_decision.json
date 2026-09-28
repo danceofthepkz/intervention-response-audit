@@ -1,0 +1,51 @@
+{
+  "decision": {
+    "cell_count": 20,
+    "cell_variance_by_key": {
+      "17503effa42449b8701089ab994dba21fa0c8233c1d6c332ac103ce9244ea2e9|authority": 0.0008399999999999999,
+      "17503effa42449b8701089ab994dba21fa0c8233c1d6c332ac103ce9244ea2e9|hedge": 0.002173333333333333,
+      "2c578dfced6b96cb07ea92a97d4ba1251e2e89f217f491c3575d45ec1e2f8fa8|authority": 0.005706666666666668,
+      "2c578dfced6b96cb07ea92a97d4ba1251e2e89f217f491c3575d45ec1e2f8fa8|hedge": 0.0017777777777777794,
+      "71b8a2399a8eddf79f6e7353ceb15f2cceb124272a346d596aa441eade08e98b|authority": 0.00064,
+      "71b8a2399a8eddf79f6e7353ceb15f2cceb124272a346d596aa441eade08e98b|hedge": 0.0,
+      "7b373585b8312ff312855f4f76f3eb482123a0ea9d1ae40f783c0b66575a8362|authority": 0.0010000000000000007,
+      "7b373585b8312ff312855f4f76f3eb482123a0ea9d1ae40f783c0b66575a8362|hedge": 0.0,
+      "838d44cbb2f0b2fca6dd8b2a9278a288771ad5167b60fc4c652002b5b0c93bc1|authority": 0.00022333333333333238,
+      "838d44cbb2f0b2fca6dd8b2a9278a288771ad5167b60fc4c652002b5b0c93bc1|hedge": 0.00025000000000000044,
+      "b0d5d247aa7ce29e39a9a823491484b9faf44f9625233f5d8d43b190d0fca157|authority": 2.139922160430262e-34,
+      "b0d5d247aa7ce29e39a9a823491484b9faf44f9625233f5d8d43b190d0fca157|hedge": 0.00044444444444444436,
+      "c6b548f65afc25510b945d66bc5007895a5bf1290bdd5e43cdb0f66f666828b1|authority": 0.00035999999999999997,
+      "c6b548f65afc25510b945d66bc5007895a5bf1290bdd5e43cdb0f66f666828b1|hedge": 0.0,
+      "cb7e5c004e9fde721bbae56fa2874e33f104181415143b4319e24b767c1824f4|authority": 0.00016000000000000004,
+      "cb7e5c004e9fde721bbae56fa2874e33f104181415143b4319e24b767c1824f4|hedge": 0.0,
+      "d68121eb99ada6407587f790305a830691e8f17819f681afc943f83d3d6105b6|authority": 0.003609999999999999,
+      "d68121eb99ada6407587f790305a830691e8f17819f681afc943f83d3d6105b6|hedge": 0.00045,
+      "f81402aede5d029b14778483a189d5328f0a3c8205e64a7f20547c06868f9dfc|authority": 0.0010000000000000005,
+      "f81402aede5d029b14778483a189d5328f0a3c8205e64a7f20547c06868f9dfc|hedge": 0.001777777777777779
+    },
+    "criterion": 0.0075,
+    "decision_code": "K_3",
+    "deterministic": false,
+    "near_deterministic": false,
+    "q90_v": 0.007484444444444447,
+    "se_call_by_k": {
+      "10": 0.0035318655232149027,
+      "3": 0.006448274723798627,
+      "5": 0.004994812123408463
+    },
+    "selected_k": 3,
+    "state_count": 10,
+    "valid_slots": 200
+  },
+  "decision_text": "Pilot gate: K_3. The smallest candidate satisfying the frozen call-noise rule is K=3. Q90(v)=0.00748444; criterion=0.00750000.",
+  "stage": "E5_REPEATABILITY_PILOT",
+  "status": "PASS",
+  "summary": {
+    "accepted_slots": 200,
+    "attempts": 200,
+    "cumulative_cost_usd": 0.06900900000000001,
+    "resumed_slots": 0,
+    "retry_attempts": 0,
+    "scheduled_slots": 200
+  }
+}
