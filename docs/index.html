@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An interactive explanation of why a cheaper social simulation model can lose the response to a change in message wording.">
+  <title>Social simulation audit</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#article">Skip to article</a>
+<main id="article">
+  <header class="prose opening">
+    <h1>Social simulation audit</h1>
+    <p class="subtitle">When a cheaper model loses the response a simulation needs.</p>
+  </header>
+  <div class="prose">
+    <p>Suppose we want to study how a message spreads through a campus. We create a network of synthetic students. Whenever a student receives a message, a language model estimates how likely they are to share it. The simulation samples that decision; a reshare gives other students a chance to see the message.</p>
+    <p>Calling a language model for every decision is expensive. A cheaper model can learn to imitate its answers. But what happens if the cheaper model never receives the part of the message we want to study?</p>
+    <p>Our experiment asks a specific question: does changing how a message is framed still change the predicted response after we replace the language model?</p>
+
+    <h2>Change the message, keep the situation.</h2>
+    <p>We paused the simulation just before a student made a decision. We kept the student, their social connections, and their previous exposures fixed. Only the quoted message changed: one version <span class="blue">cites an authority</span>; the other <span class="orange">expresses uncertainty</span>.</p>
+    <p id="example-context"></p>
+    <p>Switch between the messages below. The original language model—our “teacher”—assigns a probability to resharing each one.</p>
+  </div>
+
+  <figure class="wide-figure" id="pair-figure">
+    <div class="pair-layout">
+      <div>
+        <div class="wording-switch" role="group" aria-label="Message framing">
+          <button data-arm="authority" aria-pressed="true">Authority</button>
+          <button data-arm="hedge" aria-pressed="false">Hedge</button>
+        </div>
+        <blockquote id="message" class="authority"></blockquote>
+      </div>
+      <div class="pair-results">
+        <p class="chart-label">Predicted chance of resharing</p>
+        <div id="probability-chart"></div>
+        <p id="pair-reading" class="figure-reading" aria-live="polite"></p>
+      </div>
+    </div>
+    <figcaption>Recorded teacher answers, averaged over three calls per message. These are stated probabilities for synthetic students, not observed human behavior.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p id="example-result"></p>
+    <p>We repeated this test in 60 situations. Across them, the authority-framed messages increased the teacher’s mean reshare probability by <strong>8.66 percentage points</strong>. The response was not uniform: some situations showed no change, or a change in the opposite direction.</p>
+    <details id="other-examples">
+      <summary>Explore the other situations and original measurements</summary>
+      <p>The initial example is the situation nearest the median response. Selecting another situation updates the example and the shared-answer experiment below.</p>
+      <label for="state">Situation</label><select id="state"></select>
+      <div class="table-wrap"><table><thead><tr><th>Message</th><th>Call 1</th><th>Call 2</th><th>Call 3</th></tr></thead><tbody id="calls-table"></tbody></table></div>
+      <p>The full prompt for the selected message:</p><pre id="full-prompt"></pre>
+    </details>
+
+    <h2>The cheaper model cannot see that change.</h2>
+    <p>Our baseline replacement, called R0, receives 27 numbers describing the student, message metadata, and exposure history. It does not receive the message text.</p>
+    <p>For the two messages above, all 27 numbers are identical. To this model, they are the same situation. Whatever it has learned, it must give both messages the same predicted probability.</p>
+  </div>
+
+  <figure class="wide-figure" id="collision-figure">
+    <div class="collision-layout">
+      <div class="message-pair"><span class="blue">Authority message</span><span class="orange">Hedge message</span></div>
+      <svg class="joining-lines" viewBox="0 0 85 105" aria-hidden="true"><path d="M0 20 C45 20 40 52 85 52" stroke="#1976ad"/><path d="M0 85 C45 85 40 52 85 52" stroke="#cb6b2b"/></svg>
+      <div class="shared-input"><span>Same 27 numbers</span><div id="feature-dots" aria-hidden="true"></div><small>Wording omitted</small></div>
+      <span class="flow-arrow" aria-hidden="true">→</span>
+      <div class="shared-output"><strong id="fitted-value"></strong><span>Same answer<br>to both messages</span></div>
+    </div>
+    <figcaption id="collision-caption"></figcaption>
+  </figure>
+
+  <div class="prose">
+    <p>This is not something that a better training algorithm can fix. Training can improve the shared answer, but it cannot make one input produce two different probabilities.</p>
+    <p>Try it yourself. Move the cheaper model’s answer below. Its two markers move together because both messages have the same input. Can you make it match both teacher answers?</p>
+  </div>
+
+  <figure id="fitting" class="prose fit-figure">
+    <div id="shared-answers"></div>
+    <div class="slider-label"><label for="shared-q">The cheaper model’s shared answer</label><output id="q-value" for="shared-q"></output></div>
+    <input id="shared-q" type="range" min="0.001" max="0.999" step="0.001" aria-describedby="fit-help">
+    <div class="fit-buttons"><button id="best-q">Choose the best compromise</button><button id="fitted-q">Reset</button></div>
+    <p id="fit-reading" class="figure-reading" aria-live="polite"></p>
+    <figcaption id="fit-help">The slider explores a hypothetical shared answer. It does not retrain the model or make new language-model calls.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p id="compromise-explanation"></p>
+    <p>This explains what an average prediction score can miss. A model can improve its predictions overall without ever responding to the wording change. Predicting the average and preserving a response are different tasks.</p>
+    <details id="loss-details">
+      <summary>How we measure the error that remains</summary>
+      <p>We use KL regret to compare the teacher’s probabilities with the shared answer. Lower is better. The curve below shows this error as the shared answer moves; the axes zoom around the current answer and the best compromise.</p>
+      <div id="fit-chart"></div>
+      <p>Current error: <strong id="total-loss"></strong> nats. Minimum possible for this pair: <strong id="floor-loss"></strong> nats.</p>
+      <p>The best shared answer is the midpoint of the two teacher means. The error separates exactly into error above that midpoint prediction and an irreducible floor:</p>
+      <p class="equation">½ KL(p<sub>A</sub> ∥ q) + ½ KL(p<sub>H</sub> ∥ q)<br>= KL(m ∥ q) + JSD(p<sub>A</sub>, p<sub>H</sub>),<br>where m = (p<sub>A</sub> + p<sub>H</sub>) / 2.</p>
+      <p>The floor averages 0.01121 nats across the 60 pairs. It can be estimated from the teacher measurements before fitting a replacement. This plug-in estimate includes finite-call noise. For small differences at a fixed midpoint, the floor is proportional to the squared probability difference, so a meaningful signed response can have a modest KL penalty.</p>
+    </details>
+
+    <h2>Give the missing information back.</h2>
+    <p>We next trained three alternatives using the same data and fitting procedure. One receives a label identifying the framing. The others receive a numerical encoding of the message text, either in full or compressed.</p>
+    <p>Now the two messages can produce different inputs. Does the fitted model actually learn a different response? Choose an input below to see how much of the teacher’s mean response it recovered.</p>
+  </div>
+
+  <figure class="prose comparison-figure">
+    <label for="model">Information available to the cheaper model</label>
+    <select id="model"><option value="R0">27 structured features only (R0)</option><option value="R1">Add a framing label (R1)</option><option value="R2">Add an encoding of the text (R2)</option><option value="R3">Add a compressed text encoding (R3)</option></select>
+    <div id="recovery-chart"></div>
+    <p id="recovery-reading" class="figure-reading" aria-live="polite"></p>
+    <figcaption>Recovery compares the model’s mean signed response with the teacher’s 8.66-percentage-point response. It is not the percentage of individual decisions predicted correctly. Values come from the paper’s fitted-model comparison.</figcaption>
+  </figure>
+
+  <div class="prose">
+    <p>The text-aware alternatives recovered 81–87% of the mean response on these 60 situations. Giving the model the missing information made learning possible; it did not guarantee that learning would succeed everywhere.</p>
+    <p>On a separate check within these data—23 situations with wording absent from training—the alternatives did not improve response error over R0. These situations also had lower credibility and a smaller teacher response, so we cannot isolate the cause. Transfer to new wording was not demonstrated.</p>
+    <p>Before replacing a language model in a simulation, ask what changes the simulation must respond to. Test those changes while holding the situation fixed. If the proposed input hides a response that matters, no amount of fitting will recover it. If it preserves the distinction, learning and generalization still need to be tested.</p>
+  </div>
+
+  <div id="methods" class="prose endnotes">
+    <details><summary>Study details, data, and sources</summary>
+      <p>This article accompanies <em>When Aggregate Fidelity Misses Intervention Response: A Pre-Fitting Screen for LLM Social Simulation</em>. The campus network contains 50 synthetic students. The confirmatory study used 60 frozen situations and three calls per message, or 360 calls. Including pilot and smoke tests, the audit used 564 calls and cost about $0.20.</p>
+      <p>The mean response was 8.66 percentage points; the state-bootstrap interval was 6.70–10.63 and the template-cluster interval was 5.93–11.48. The states were selected in a way that over-sampled long cascades. Message pairs also differ in length and wording, not only authority cues. The study measures responses to these template bundles, not human persuasion or effects on complete diffusion trajectories.</p>
+      <p id="teacher-model"></p>
+      <div class="table-wrap"><table><thead><tr><th>Input</th><th>Normal KL</th><th>Response error [95% CI]</th><th>Recovery</th></tr></thead><tbody id="comparison-table"></tbody></table></div>
+      <p>Normal KL is row-weighted cross-fit KL on ordinary rollout rows. Response error is the mean absolute difference between model and teacher signed contrasts. The table is transcribed from the manuscript, not refitted in the browser; individual R1–R3 predictions are not bundled. The results do not establish a best text encoding.</p>
+      <p>Under scenario-equal weighting, R0’s KL regret was 0.03622 on ordinary rows and 0.03806 on paired anchors. These are different evaluation distributions; no equivalence test was run. The comparison is descriptive, not proof that the errors are equal.</p>
+      <p><a href="data.json" download>Download displayed data</a> · <a href="validation.json">Numerical checks</a> · <a href="representation-summary.json">Comparison source</a></p>
+      <details><summary>Original feature values and file checksums</summary><div class="table-wrap"><table><thead><tr><th>Feature</th><th>Authority</th><th>Hedge</th></tr></thead><tbody id="feature-table"></tbody></table></div><div id="sources"></div></details>
+    </details>
+    <p class="credits"><a href="https://github.com/danceofthepkz/intervention-response-audit">Code and reproducibility materials</a>. Layout inspired by <a href="https://distill.pub/2020/communicating-with-interactive-articles/">Distill</a>; direct manipulation inspired by <a href="https://playground.tensorflow.org/">TensorFlow Playground</a>.</p>
+  </div>
+</main>
+<noscript><p class="prose">Enable JavaScript to explore the recorded examples. The source measurements are also available in <a href="data.json">the data file</a>.</p></noscript>
+</body>
+</html>

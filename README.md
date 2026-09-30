@@ -72,6 +72,16 @@ MPLCONFIGDIR=/tmp/intervention-response-audit-matplotlib-cache \
 
 This writes three vector PDFs to `output/pdf/`.
 
+## Interactive article
+
+Read [**Social simulation audit**](https://danceofthepkz.github.io/intervention-response-audit/),
+an interactive explanation using recorded examples from this study.
+
+Open [`docs/index.html`](docs/index.html) to explore the paired messages,
+representation collision, and loss floor using the frozen data. The page runs
+locally without API calls. See [`docs/README.md`](docs/README.md) for preview
+and data-regeneration instructions.
+
 ## Scope
 
 All agents, messages, networks, and outcomes are synthetic. The package

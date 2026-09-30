@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "states": 60,
+  "accepted_calls": 360,
+  "features": 27,
+  "verified": [
+    "Paired prompts differ only inside the message span",
+    "Three unique repetitions per arm, matched to frozen prompts",
+    "All 60 contrasts match the primary result",
+    "Features derived with the original 27-feature builder",
+    "Exact KL decomposition on every state",
+    "Aggregate contrast and loss components match frozen results"
+  ],
+  "not_recomputed": "R1\u2013R3 are transcribed manuscript summaries, not refitted predictions.",
+  "summary": {
+    "delta": 0.08661111111111111,
+    "floor": 0.01121114223572651,
+    "total": 0.03806362769574165,
+    "fit": 0.02685248546001513,
+    "ci": [
+      0.06699999999999999,
+      0.10627777777777778
+    ],
+    "clusterCi": [
+      0.059277314814814824,
+      0.11477037037037037
+    ],
+    "k": 3,
+    "n": 60,
+    "model": "gpt-5.4-mini-2026-03-17"
+  }
+}
