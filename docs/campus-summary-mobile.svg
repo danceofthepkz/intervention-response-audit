@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="452" height="680" viewBox="0 0 452 680" role="img" aria-labelledby="title desc">
+  <title id="title">One student, two messages</title>
+  <desc id="desc">A schematic cartoon campus accompanies a recorded example. The teacher predicts 18 percent for authority wording and 12 percent for hedge wording. R0 predicts approximately 22.7 percent for both.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#fcf1df"/><stop offset="1" stop-color="#fffaf2"/></linearGradient>
+    <pattern id="windows" width="27" height="36" patternUnits="userSpaceOnUse"><rect x="8" y="7" width="12" height="21" rx="2" fill="#697e7a"/><path d="M14 7v21m-6-11h12" stroke="#f3d3a9" stroke-width="1.5"/></pattern>
+  </defs>
+  <rect x="0" y="12" width="452" height="306" rx="90" fill="url(#sky)"/>
+  <circle cx="340" cy="60" r="25" fill="#f8dfac"/>
+  <g fill="#fffdf7"><path d="M57 51q3-14 17-11 7-19 21-5 21-3 23 16z"/><path d="M260 85q3-11 14-10 9-15 20-2 14-2 17 12z"/></g>
+  <!-- A quiet campus: buildings are a visual setting, not experimental data. -->
+  <path d="M35 229V109h107v120" fill="#d99872"/>
+  <path d="m24 110 65-43 65 43z" fill="#ac795e"/>
+  <path d="M40 116h97v105H40z" fill="url(#windows)"/>
+  <path d="M73 229v-34q0-21 16-21t16 21v34" fill="#715d50"/>
+  <path d="M341 232V130h90v102" fill="#e3b089"/>
+  <path d="m329 131 57-43 55 43z" fill="#b88769"/>
+  <path d="M347 137h77v87h-77z" fill="url(#windows)"/>
+  <circle cx="89" cy="98" r="8" fill="#ead0a2"/>
+  <path d="M13 243q82-30 169-8 91-31 171-5 66-5 87 14l-5 45q-195 64-408-1z" fill="#e2e7c4"/>
+  <path d="M230 206q-58 48-10 106h94q-88-59-57-106" fill="#edddbd"/>
+  <path d="M243 217q-40 57 21 94" fill="none" stroke="#fff5df" stroke-width="3" stroke-dasharray="9 11"/>
+  <g stroke="#8a7955" stroke-width="8" stroke-linecap="round"><path d="M170 229v-95m0 51-20-24m21 2 20-20"/><path d="M399 246v-53"/></g>
+  <g fill="#a5b578"><circle cx="153" cy="133" r="28"/><circle cx="184" cy="126" r="30"/><circle cx="170" cy="107" r="28"/><circle cx="196" cy="151" r="23"/><circle cx="155" cy="158" r="25"/><circle cx="400" cy="184" r="25"/></g>
+  <g fill="#b9c98b"><circle cx="150" cy="113" r="17"/><circle cx="186" cy="103" r="17"/><circle cx="389" cy="174" r="15"/></g>
+  <g stroke="#907254" stroke-width="5" stroke-linecap="round"><path d="M61 278h109M70 278v18m91-18v18"/><path d="M64 259h102m-102 10h102"/></g>
+  <!-- The student and the sender, illustrated rather than inferred. -->
+  <ellipse cx="222" cy="285" rx="30" ry="7" fill="#bac59d" opacity=".55"/>
+  <g stroke="#454b4b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m211 261-3 20m25-20 3 20" fill="none"/><path d="M202 285h10m21 0h10"/>
+    <path d="M198 260v-29q1-22 24-22t23 22v29z" fill="#d39c60" stroke="#a57449"/>
+    <path d="m210 212 12 13 12-13m-12 13v34" stroke="#f9dfbb" fill="none"/>
+    <path d="m202 232-10 13m49-15 10 8" stroke="#e8bc99" stroke-width="9"/>
+    <rect x="245" y="222" width="14" height="24" rx="3" fill="#536669" stroke="#536669" transform="rotate(12 252 234)"/>
+    <ellipse cx="222" cy="190" rx="25" ry="28" fill="#efc49f" stroke="#c69776" stroke-width="2"/>
+    <path d="M197 186q-8-33 23-33 34-2 28 33l-10-16q-9 9-33 7z" fill="#644d3b" stroke="#644d3b"/>
+    <g fill="#f9e0ba" stroke="#534c42"><rect x="201" y="183" width="17" height="14" rx="5"/><rect x="226" y="183" width="17" height="14" rx="5"/><path d="M218 188h8"/></g>
+    <path d="M209 189v3m25-3v3m-17 12q5 3 9 0" fill="none" stroke-width="2"/>
+  </g>
+  <ellipse cx="314" cy="278" rx="25" ry="6" fill="#bac59d" opacity=".55"/>
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="m305 255-2 18m21-18 4 18" stroke="#5a6260" stroke-width="7"/><path d="M298 276h9m17 0h9" stroke="#4a514f" stroke-width="5"/>
+    <path d="M294 253v-28q1-16 19-16t23 16v28z" fill="#80a6a7"/>
+    <path d="m298 222-11 10-9-7" stroke="#c98e6e" stroke-width="8" fill="none"/>
+    <ellipse cx="315" cy="188" rx="22" ry="25" fill="#d9a17b"/>
+    <path d="M294 181q-6-27 19-28 27 0 25 29l-9-9-11 3-8-5-11 12" fill="#3f4545"/>
+    <g fill="#3f4545"><circle cx="298" cy="162" r="8"/><circle cx="311" cy="157" r="9"/><circle cx="325" cy="159" r="9"/><circle cx="334" cy="168" r="8"/></g>
+    <path d="M304 187v3m17-3v3m-15 10q5 4 10 0" stroke="#54453c" stroke-width="2" fill="none"/>
+  </g>
+  <g font-family="system-ui, sans-serif">
+    <path d="M209 49h113q14 0 14 14v42q0 14-14 14h-75l-18 14 2-14h-22q-14 0-14-14V63q0-14 14-14z" fill="white" stroke="#d5c9b5" stroke-width="1.5"/>
+    <text x="265" y="78" text-anchor="middle" font-size="13" fill="#54656a">An internship</text><text x="265" y="98" text-anchor="middle" font-size="13" fill="#54656a">lead arrives…</text>
+    <text x="226" y="336" text-anchor="middle" font-size="12" fill="#73766b">Same student. Same situation. Different wording.</text>
+  </g>
+  <g font-family="system-ui, sans-serif" transform="translate(-470 345)">
+    <text x="499" y="39" font-size="19" font-weight="600" fill="#303d42">One decision, seen two ways.</text>
+    <text x="499" y="69" font-size="13" fill="#71797d">Recorded reshare probabilities</text>
+    <text x="499" y="106" font-size="12" fill="#71797d">MESSAGE</text>
+    <text x="715" y="106" text-anchor="middle" font-size="12" fill="#71797d">TEACHER</text>
+    <text x="840" y="106" text-anchor="middle" font-size="12" fill="#71797d">R0</text>
+    <rect x="495" y="122" width="138" height="41" rx="16" fill="#e9f3f8"/>
+    <text x="564" y="148" text-anchor="middle" font-size="14" fill="#1976ad">Authority wording</text>
+    <path d="M644 143h33" stroke="#83b6ce" stroke-width="2"/><path d="m672 138 5 5-5 5" fill="none" stroke="#83b6ce" stroke-width="2"/>
+    <text x="715" y="151" text-anchor="middle" font-size="25" font-weight="600" fill="#1976ad">18%</text>
+    <text x="840" y="150" text-anchor="middle" font-size="22" fill="#68777c">22.7%</text>
+    <rect x="495" y="180" width="138" height="41" rx="16" fill="#fff0e3"/>
+    <text x="564" y="206" text-anchor="middle" font-size="14" fill="#b66b33">Hedge wording</text>
+    <path d="M644 201h33" stroke="#d5a582" stroke-width="2"/><path d="m672 196 5 5-5 5" fill="none" stroke="#d5a582" stroke-width="2"/>
+    <text x="715" y="209" text-anchor="middle" font-size="25" font-weight="600" fill="#cb6b2b">12%</text>
+    <text x="840" y="208" text-anchor="middle" font-size="22" fill="#68777c">22.7%</text>
+    <path d="M690 233h50m75 0h50" stroke="#d4dbdd"/>
+    <text x="715" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#384b54">6-point change</text>
+    <text x="840" y="258" text-anchor="middle" font-size="14" font-weight="600" fill="#384b54">No change</text>
+    <text x="689" y="304" text-anchor="middle" font-size="13" fill="#71797d">R0 never receives the message wording.</text>
+  </g>
+</svg>

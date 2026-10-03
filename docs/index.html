@@ -5,25 +5,62 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="An interactive explanation of why a cheaper social simulation model can lose the response to a change in message wording.">
   <title>Social simulation audit</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="data.js"></script>
-  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="style.css?v=20261003-4">
+  <script defer src="data.js?v=20261003-4"></script>
+  <script defer src="app.js?v=20261003-4"></script>
 </head>
 <body>
 <a class="skip" href="#article">Skip to article</a>
 <main id="article">
   <header class="prose opening">
+    <p class="project-note">An ongoing research project · Interactive article</p>
     <h1>Social simulation audit</h1>
     <p class="subtitle">When a cheaper model loses the response a simulation needs.</p>
   </header>
-  <div class="prose">
+  <section class="quick-read" aria-label="The study in 30 seconds">
+    <figure class="campus-preview">
+      <div class="hero-layout">
+        <div class="campus-scene" id="hero-scene" data-condition="authority">
+          <svg viewBox="0 0 452 320" role="img" aria-label="The same student receives a differently worded internship message; their phone follows the selected message color."><use href="campus-scene.svg#campus"/></svg>
+          <blockquote id="hero-message" class="scene-message">A student leader says an official source confirmed the internship lead.</blockquote>
+        </div>
+        <div class="hero-evidence">
+          <p class="hero-question">One student. <br>Only the wording changes.</p>
+          <p class="figure-reading">Hover, tap, or focus a message to compare.</p>
+          <div class="hero-columns" aria-hidden="true"><span>Message</span><span>LLM teacher</span><span>Cheaper model</span></div>
+          <div class="hero-choices" role="group" aria-label="Compare recorded message versions">
+            <button data-hero-arm="authority" aria-pressed="true" aria-label="Authority wording: teacher 18%, cheaper model 22.7%"><span>Authority</span><strong>18%</strong><span>22.7%</span></button>
+            <button data-hero-arm="hedge" aria-pressed="false" aria-label="Hedge wording: teacher 12%, cheaper model 22.7%"><span>Hedge</span><strong>12%</strong><span>22.7%</span></button>
+          </div>
+          <p class="hero-takeaway">Different teacher answers.<br><strong>One answer when wording is hidden.</strong></p>
+        </div>
+      </div>
+      <figcaption>Same student and context; recorded teacher means from three calls per message and an archived cheaper-model prediction. Campus art illustrates the setting, not a recorded diffusion trajectory.</figcaption>
+    </figure>
+    <div class="prose">
+      <div class="study-summary" aria-label="The study in 30 seconds">
+        <p><span class="summary-label">Question</span> Can a cheaper model preserve an LLM campus simulation’s response to a change in wording?</p>
+        <p><span class="summary-label">Finding</span> Across 60 fixed situations, authority wording raised the teacher’s mean reshare probability by <strong>8.66 percentage points</strong> over hedge wording, while a model given identical text-blind inputs must predict <strong>zero change</strong>.</p>
+        <p><span class="summary-label">Contribution</span> A check <strong>before fitting</strong> reveals this missing capacity; learning and generalization still need separate tests.</p>
+      </div>
+      <div class="research-links" aria-label="Research materials">
+        <a href="paper.pdf">Read the paper <span aria-hidden="true">↗</span><span class="link-format">PDF</span></a>
+        <a href="https://github.com/danceofthepkz/intervention-response-audit">Explore the code <span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="story-invitation"><a href="#campus-story">Follow one decision through the experiment <span aria-hidden="true">↓</span></a></p>
+    </div>
+  </section>
+  <div class="prose" id="campus-story">
     <p>Suppose we want to study how a message spreads through a campus. We create a network of synthetic students. Whenever a student receives a message, a language model estimates how likely they are to share it. The simulation samples that decision; a reshare gives other students a chance to see the message.</p>
     <p>Calling a language model for every decision is expensive. A cheaper model can learn to imitate its answers. But what happens if the cheaper model never receives the part of the message we want to study?</p>
     <p>Our experiment asks a specific question: does changing how a message is framed still change the predicted response after we replace the language model?</p>
 
-    <h2>Change the message, keep the situation.</h2>
+    <h2><svg class="guide-avatar" viewBox="190 145 65 120" aria-hidden="true"><use href="campus-scene.svg#student"/></svg>Change the message, keep the situation.</h2>
     <p>We paused the simulation just before a student made a decision. We kept the student, their social connections, and their previous exposures fixed. Only the quoted message changed: one version <span class="blue">cites an authority</span>; the other <span class="orange">expresses uncertainty</span>.</p>
-    <p id="example-context"></p>
+    <div class="student-profile" aria-label="Student and context held fixed">
+      <svg viewBox="190 145 75 150" aria-hidden="true"><use href="campus-scene.svg#student"/></svg>
+      <div><span class="summary-label">Held fixed</span><p id="example-context"></p><ul id="student-traits"></ul><p id="student-source" class="figure-reading"></p></div>
+    </div>
     <p>Switch between the messages below. The original language model—our “teacher”—assigns a probability to resharing each one.</p>
   </div>
 
@@ -56,34 +93,51 @@
       <p>The full prompt for the selected message:</p><pre id="full-prompt"></pre>
     </details>
 
-    <h2>The cheaper model cannot see that change.</h2>
+    <h2><svg class="guide-avatar" viewBox="190 145 65 120" aria-hidden="true"><use href="campus-scene.svg#student"/></svg>The cheaper model cannot see that change.</h2>
     <p>Our baseline replacement, called R0, receives 27 numbers describing the student, message metadata, and exposure history. It does not receive the message text.</p>
     <p>For the two messages above, all 27 numbers are identical. To this model, they are the same situation. Whatever it has learned, it must give both messages the same predicted probability.</p>
   </div>
 
   <figure class="wide-figure" id="collision-figure">
     <div class="collision-layout">
-      <div class="message-pair"><span class="blue">Authority message</span><span class="orange">Hedge message</span></div>
+      <div class="message-pair"><blockquote id="collision-authority" class="authority"></blockquote><blockquote id="collision-hedge" class="hedge"></blockquote></div>
       <svg class="joining-lines" viewBox="0 0 85 105" aria-hidden="true"><path d="M0 20 C45 20 40 52 85 52" stroke="#1976ad"/><path d="M0 85 C45 85 40 52 85 52" stroke="#cb6b2b"/></svg>
       <div class="shared-input"><span>Same 27 numbers</span><div id="feature-dots" aria-hidden="true"></div><small>Wording omitted</small></div>
       <span class="flow-arrow" aria-hidden="true">→</span>
-      <div class="shared-output"><strong id="fitted-value"></strong><span>Same answer<br>to both messages</span></div>
+      <div class="shared-output"><strong id="fitted-value"></strong><span>Same answer <br>to both messages</span></div>
     </div>
     <figcaption id="collision-caption"></figcaption>
   </figure>
 
   <div class="prose">
     <p>This is not something that a better training algorithm can fix. Training can improve the shared answer, but it cannot make one input produce two different probabilities.</p>
-    <p>Try it yourself. Move the cheaper model’s answer below. Its two markers move together because both messages have the same input. Can you make it match both teacher answers?</p>
+    <p>Try it yourself. Drag the diamond below: it gives the same answer to both messages. Can you make it match both teacher answers?</p>
   </div>
 
   <figure id="fitting" class="prose fit-figure">
-    <div id="shared-answers"></div>
-    <div class="slider-label"><label for="shared-q">The cheaper model’s shared answer</label><output id="q-value" for="shared-q"></output></div>
-    <input id="shared-q" type="range" min="0.001" max="0.999" step="0.001" aria-describedby="fit-help">
+    <div class="fit-heading"><span>Your shared answer <strong id="q-value"></strong></span><button id="fit-scale" class="text-button" aria-pressed="false">Show full 0–100% scale</button></div>
+    <div class="fit-plot" id="shared-answers">
+      <div id="fit-track" role="slider" tabindex="0" aria-label="Shared answer for both messages" aria-valuemin="0.1" aria-valuemax="30" aria-valuenow="22.7" aria-describedby="fit-help fit-reading">
+        <div id="fit-grid" aria-hidden="true"></div>
+        <div class="teacher-point authority" id="fit-authority"><span></span></div>
+        <div class="teacher-point hedge" id="fit-hedge"><span></span></div>
+        <div id="response-bracket" class="response-bracket"><span></span></div>
+        <div id="midpoint-marker" class="midpoint-marker"><span>Best compromise</span></div>
+        <div id="actual-marker" class="actual-marker"><span>R0’s actual answer</span></div>
+        <div id="fit-gap" class="fit-gap"></div>
+        <div id="shared-marker" class="shared-marker"><span class="drag-diamond"></span></div>
+      </div>
+      <div id="fit-ticks" class="plot-ticks" aria-hidden="true"></div>
+    </div>
+    <p id="fit-distance" class="figure-reading"></p>
     <div class="fit-buttons"><button id="best-q">Choose the best compromise</button><button id="fitted-q">Reset</button></div>
     <p id="fit-reading" class="figure-reading" aria-live="polite"></p>
-    <figcaption id="fit-help">The slider explores a hypothetical shared answer. It does not retrain the model or make new language-model calls.</figcaption>
+    <div class="loss-decomposition" aria-label="KL error decomposition">
+      <div class="loss-labels"><span><i class="loss-key floor-key"></i>Irreducible <strong id="live-floor"></strong></span><span><i class="loss-key fit-key"></i>Reducible <strong id="live-fit"></strong></span></div>
+      <div class="loss-track" role="img" id="loss-track"><span id="loss-floor"></span><span id="loss-fit"></span></div>
+      <p class="figure-reading" id="loss-scale"></p>
+    </div>
+    <figcaption id="fit-help">Drag the diamond, tap the plot, or use the arrow keys while focused. This explores a hypothetical probability; it does not retrain the model. The teacher gap is in percentage points; error is in KL nats. The floor uses measured teacher means and includes finite-call noise.</figcaption>
   </figure>
 
   <div class="prose">
@@ -99,24 +153,28 @@
       <p>The floor averages 0.01121 nats across the 60 pairs. It can be estimated from the teacher measurements before fitting a replacement. This plug-in estimate includes finite-call noise. For small differences at a fixed midpoint, the floor is proportional to the squared probability difference, so a meaningful signed response can have a modest KL penalty.</p>
     </details>
 
-    <h2>Give the missing information back.</h2>
+    <h2><svg class="guide-avatar" viewBox="190 145 65 120" aria-hidden="true"><use href="campus-scene.svg#student"/></svg>Give the missing information back.</h2>
     <p>We next trained three alternatives using the same data and fitting procedure. One receives a label identifying the framing. The others receive a numerical encoding of the message text, either in full or compressed.</p>
-    <p>Now the two messages can produce different inputs. Does the fitted model actually learn a different response? Choose an input below to see how much of the teacher’s mean response it recovered.</p>
+    <p>Now the two messages can produce different inputs. Does the fitted model actually learn a different response? Compare all four representations, then check the situations with unseen wording.</p>
   </div>
 
   <figure class="prose comparison-figure">
-    <label for="model">Information available to the cheaper model</label>
-    <select id="model"><option value="R0">27 structured features only (R0)</option><option value="R1">Add a framing label (R1)</option><option value="R2">Add an encoding of the text (R2)</option><option value="R3">Add a compressed text encoding (R3)</option></select>
+    <div class="comparison-switch" role="group" aria-label="Evaluation sample"><button data-sample="all" aria-pressed="true">All 60 situations</button><button data-sample="unseen" aria-pressed="false">Unseen wording · 23</button></div>
+    <p id="comparison-metric" class="chart-label"></p>
     <div id="recovery-chart"></div>
     <p id="recovery-reading" class="figure-reading" aria-live="polite"></p>
-    <figcaption>Recovery compares the model’s mean signed response with the teacher’s 8.66-percentage-point response. It is not the percentage of individual decisions predicted correctly. Values come from the paper’s fitted-model comparison.</figcaption>
+    <figcaption id="comparison-caption"></figcaption>
   </figure>
 
   <div class="prose">
     <p>The text-aware alternatives recovered 81–87% of the mean response on these 60 situations. Giving the model the missing information made learning possible; it did not guarantee that learning would succeed everywhere.</p>
     <p>On a separate check within these data—23 situations with wording absent from training—the alternatives did not improve response error over R0. These situations also had lower credibility and a smaller teacher response, so we cannot isolate the cause. Transfer to new wording was not demonstrated.</p>
-    <p>Before replacing a language model in a simulation, ask what changes the simulation must respond to. Test those changes while holding the situation fixed. If the proposed input hides a response that matters, no amount of fitting will recover it. If it preserves the distinction, learning and generalization still need to be tested.</p>
   </div>
+
+  <figure class="prose story-ending">
+    <svg viewBox="0 140 280 178" role="img" aria-label="Back beside the campus bench, the student still holds the message."><use href="campus-scene.svg#campus"/></svg>
+    <div><p>Back at the bench, the question is still the same: what should change when this message changes?</p><p><strong>Before replacing a model, check that it can see the difference your study depends on.</strong></p></div>
+  </figure>
 
   <div id="methods" class="prose endnotes">
     <details><summary>Study details, data, and sources</summary>

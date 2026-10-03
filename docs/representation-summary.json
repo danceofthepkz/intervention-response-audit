@@ -1,12 +1,68 @@
 {
-  "source": "Table 1 and Section 5 of the manuscript supplied by the author in this conversation.",
-  "status": "Transcribed manuscript summaries; R1–R3 per-state predictions and fitted models are not included in this page's data bundle.",
+  "source": "Table 1, Section 5, and Appendix C.2 of the author-supplied manuscript (docs/paper.pdf, pages 4 and 8).",
+  "status": "Transcribed manuscript summaries; R1\u2013R3 per-state predictions and fitted models are not included in this page's data bundle.",
   "teacher_mean": 0.0866,
   "models": [
-    {"id": "R0", "name": "Structured features", "description": "27 structured features. The message wording is absent.", "kl": 0.03683, "eir": 0.0972, "ci": [0.0757, 0.1226], "recovery": 0},
-    {"id": "R1", "name": "+ Framing label", "description": "The same features, plus an explicit label for the message framing.", "kl": 0.03340, "eir": 0.0713, "ci": [0.0580, 0.0887], "recovery": 0.870},
-    {"id": "R2", "name": "+ Text embedding", "description": "The same features, plus a frozen sentence embedding of the message.", "kl": 0.03074, "eir": 0.0694, "ci": [0.0573, 0.0848], "recovery": 0.813},
-    {"id": "R3", "name": "+ Compressed embedding", "description": "The same features, plus a 32-dimensional PCA projection of the embedding.", "kl": 0.03082, "eir": 0.0664, "ci": [0.0549, 0.0810], "recovery": 0.834}
+    {
+      "id": "R0",
+      "name": "Structured features",
+      "description": "27 structured features. The message wording is absent.",
+      "kl": 0.03683,
+      "eir": 0.0972,
+      "ci": [
+        0.0757,
+        0.1226
+      ],
+      "recovery": 0
+    },
+    {
+      "id": "R1",
+      "name": "+ Framing label",
+      "description": "The same features, plus an explicit label for the message framing.",
+      "kl": 0.0334,
+      "eir": 0.0713,
+      "ci": [
+        0.058,
+        0.0887
+      ],
+      "recovery": 0.87
+    },
+    {
+      "id": "R2",
+      "name": "+ Text embedding",
+      "description": "The same features, plus a frozen sentence embedding of the message.",
+      "kl": 0.03074,
+      "eir": 0.0694,
+      "ci": [
+        0.0573,
+        0.0848
+      ],
+      "recovery": 0.813
+    },
+    {
+      "id": "R3",
+      "name": "+ Compressed embedding",
+      "description": "The same features, plus a 32-dimensional PCA projection of the embedding.",
+      "kl": 0.03082,
+      "eir": 0.0664,
+      "ci": [
+        0.0549,
+        0.081
+      ],
+      "recovery": 0.834
+    }
   ],
-  "transfer": {"n": 23, "description": "On the prespecified low-credibility subset where neither message appeared in training, R1–R3 did not improve on R0. Template novelty is nearly confounded with credibility and a smaller teacher effect. Wording transfer was not demonstrated."}
+  "transfer": {
+    "n": 23,
+    "description": "On the prespecified low-credibility subset where neither message appeared in training, R1\u2013R3 did not improve on R0. Template novelty is nearly confounded with credibility and a smaller teacher effect. Wording transfer was not demonstrated.",
+    "teacher_mean": 0.0317,
+    "metric": "Mean absolute intervention-response error (EIR), in probability units; lower is better. Not recovery.",
+    "eir": {
+      "R0": 0.0506,
+      "R1": 0.0568,
+      "R2": 0.0566,
+      "R3": 0.0565
+    },
+    "source": "Appendix C.2, page 8 of docs/paper.pdf. Transcribed aggregate values; no per-state predictions are inferred."
+  }
 }
